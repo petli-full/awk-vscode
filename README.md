@@ -8,7 +8,7 @@ This vscode extension allows users run awk (gawk) filter on the current document
 ![AWK Filter](https://raw.githubusercontent.com/petli-full/awk-vscode/master/images/demo.gif)
 
 ### Limitations
-Though this extension uses the same ![GNU awk](https://www.gnu.org/software/gawk/), it has its limitations. Here are some of them:
+Though this extension uses the same [GNU awk](https://www.gnu.org/software/gawk/), it has its limitations. Here are some of them:
 
 - User cannot specify input file. The input is always the currently opened document in vscode;
 
