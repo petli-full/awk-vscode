@@ -23,7 +23,7 @@ awk 'BEGIN { print "awk" | "tr [a-z] [A-Z]" }'
 ```
 
 ### Working with Large Files
-- The vscode does not synchronize large files (> 50M) with its extensions. In another words, if the user opens a file larger than 50M, the extension does not know where to find it. For a temporary fix, awk-vscode provides a separate command - "AWK Filter (open file)" to work with large files.
+- Vscode does not synchronize large files (> 50M) with its extensions. In another words, if the user opens a file larger than 50M, the extension does not know where to find it. For a temporary fix, awk-vscode provides a separate command - "AWK Filter (open file)" to work with large files.
 
 ![AWK Filter (open file)](https://raw.githubusercontent.com/petli-full/awk-vscode/master/images/awk_vscode_open_file.gif)
 
