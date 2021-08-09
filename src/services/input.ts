@@ -3,6 +3,8 @@ import * as vscode from 'vscode';
 
 interface Input {
     load: () => void;
+    reset: () => void;
+    ready: (text: string) => Thenable<vscode.TextEditor>;
     get: () => string;
     getFilename: () => string;
 };
@@ -16,6 +18,32 @@ const load = () => {
     _filename = (doc ? doc.fileName : '').trim();
 };
 
+let editor$: null | Thenable<vscode.TextEditor> = null;
+let _editor: null | vscode.TextEditor = null;
+
+const reset = () => {
+    _input = '';
+    editor$ = null;
+    _editor = null;
+};
+
+const ready = (text: string): Thenable<vscode.TextEditor> => {
+    if (editor$ === null || (_editor !== null && _editor.document.isClosed)) {
+        _input = text;
+        editor$ = vscode.workspace.openTextDocument({ language: 'plaintext', content: text }).then(doc => {
+            return vscode.window.showTextDocument(doc).then(editor => {
+                _editor = editor;
+                return editor;
+            });
+        });
+        return editor$;
+    } else if (_editor === null) {
+        return editor$.then(() => ready(text));
+    }
+
+    return editor$;
+};
+
 const get = (): string => {
     return _input;
 };
@@ -27,6 +55,8 @@ const getFilename = (): string => {
 
 export const input: Input = {
     load,
+    reset,
+    ready,
     get,
     getFilename,
 };

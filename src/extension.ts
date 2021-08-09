@@ -2,7 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-import { openQueryBox } from './commands';
+import { openQueryBox, openFilePicker } from './commands';
 import { initServices } from './services';
 
 // this method is called when your extension is activated
@@ -16,6 +16,7 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
 		// commands
 		vscode.commands.registerCommand('awk-vscode.open-query-box', openQueryBox),
+		vscode.commands.registerCommand('awk-vscode.open-file-picker', openFilePicker),
 
 		// services
 		initServices(),

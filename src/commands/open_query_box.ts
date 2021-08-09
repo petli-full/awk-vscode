@@ -3,7 +3,7 @@ import * as vscode from 'vscode';
 import { query, input, output } from '../services';
 
 
-function newQueryBox() {
+export function newQueryBox() {
     const queryBox = vscode.window.createInputBox();
     queryBox.ignoreFocusOut = true;
     queryBox.placeholder = 'awk input';

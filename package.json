@@ -3,7 +3,7 @@
 	"name": "awk-vscode",
 	"displayName": "awk-vscode",
 	"description": "reformat and filter text by awk (GNU gawk)",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.50.0"
 	},
@@ -18,7 +18,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:awk-vscode.open-query-box"
+		"onCommand:awk-vscode.open-query-box",
+		"onCommand:awk-vscode.open-file-picker"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -26,6 +27,10 @@
 			{
 				"command": "awk-vscode.open-query-box",
 				"title": "AWK Filter"
+			},
+			{
+				"command": "awk-vscode.open-file-picker",
+				"title": "AWK Filter (open file)"
 			}
 		]
 	},
